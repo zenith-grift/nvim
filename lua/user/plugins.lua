@@ -53,33 +53,63 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  require('lualine').setup {
-    options = {
-      icons_enabled = true,
-      theme = 'auto',
-      component_separators = { left = '', right = ''},
-      section_separators = { left = '', right = ''},
-      disabled_filetypes = {},
-      always_divide_middle = true,
-    },
-    sections = {
-      lualine_a = {'mode'},
-      lualine_b = {'branch', 'diff', 'diagnostics'},
-      lualine_c = {'filename'},
-      lualine_x = {'encoding', 'fileformat', 'filetype'},
-      lualine_y = {'progress'},
-      lualine_z = {'location'}
-    },
-    inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = {'filename'},
-      lualine_x = {'location'},
-      lualine_y = {},
-      lualine_z = {}
-    },
-    tabline = {},
-    extensions = {}
+  require("lualine").setup{
+      options = {
+          theme = 'auto'
+      }
+  }
+
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
+  -- Autopairs
+  use {
+    "windwp/nvim-autopairs"
+  }
+
+  -- comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup {
+        toggler = {
+          ---Line-comment toggle keymap
+          line = '<leader>/',
+          ---Block-comment toggle keymap
+          block = '<leader>/',
+       },
+       opleader = {
+         ---Line-comment keymap
+         line = '<leader>/',
+         ---Block-comment keymap
+         block = '<leader>/',
+       }
+    }
+    end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
