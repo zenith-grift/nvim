@@ -66,8 +66,7 @@ return packer.startup(function(use)
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = {
 						function()
-							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-								.. vim.fn.expand(string.gsub(vim.api.nvim_buf_get_name(0), vim.loop.cwd(), ""))
+							return vim.fn.expand("%")
 						end,
 					},
 					lualine_x = { "encoding", "fileformat", "filetype" },
