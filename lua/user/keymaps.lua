@@ -17,7 +17,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+-- NvimTree
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -56,6 +57,5 @@ keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>", opts)
 keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
 
--- Comment: sets some default mappings and I will override them
-keymap("n", "<leader>c", "gcc", opts)
-keymap("v", "<leader>c", "gc", opts)
+-- Close Buffer with BDelete
+keymap("n", "<leader>c", ":Bdelete<CR>", opts)

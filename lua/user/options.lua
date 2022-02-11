@@ -1,9 +1,9 @@
 -- :help options for info on options
 
-vim.opt.backup = false
+-- defaults vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 2
-vim.opt.completeopt = { "menuone", "noselect"}
+vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
 vim.opt.hlsearch = false
@@ -31,4 +31,3 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-
