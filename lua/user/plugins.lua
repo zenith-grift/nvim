@@ -128,11 +128,11 @@ return packer.startup(function(use)
 
 	-- Git
 	use({
-		"lewis6991/gitsigns.nvim",
+        'lewis6991/gitsigns.nvim',
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
-		config = require("gitsigns").setup(),
+		config = function() require("gitsigns").setup() end,
 	})
 
 	-- Autopairs
