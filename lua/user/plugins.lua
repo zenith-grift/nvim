@@ -63,13 +63,13 @@ return packer.startup(function(use)
 				},
 				sections = {
 					lualine_a = { "mode" },
-					lualine_b = { "branch", "diff", "diagnostics" },
+					lualine_b = { "branch", "diff" },
 					lualine_c = {
 						function()
 							return vim.fn.expand("%")
 						end,
 					},
-					lualine_x = { "encoding", "fileformat", "filetype" },
+					lualine_x = { "diagnostics", "fileformat", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
