@@ -8,6 +8,7 @@ require("user.treesitter")
 require("user.autopairs")
 require("user.lsp.null-ls")
 require("user.toggleterm")
+require("user.nvim-tree")
 
 -- TODO: Find a better place to put this
 -- auto format on save
