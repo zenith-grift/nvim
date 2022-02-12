@@ -10,6 +10,11 @@ require("user.lsp.null-ls")
 require("user.toggleterm")
 require("user.nvim-tree")
 
+
+-- TODO: Structure improvement
+-- Make a plugins-settings folder to celan up lua folder
+
+
 -- TODO: Find a better place to put this
 -- auto format on save
 vim.cmd([[ 
