@@ -18,7 +18,7 @@ local check_backspace = function()
 end
 
 --   פּ ﯟ   some other good icons
-local kind_icons = {
+local cmp_kinds = {
 	Text = "",
 	Method = "m",
 	Function = "",
@@ -96,18 +96,11 @@ cmp.setup({
 			"s",
 		}),
 	},
+	fields = { "abbr", "kind" },
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			-- Kind icons
-			-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-			})[entry.source.name]
+		fields = { "abbr", "kind" },
+		format = function(_, vim_item)
+			vim_item.kind = string.format("%s  %s", cmp_kinds[vim_item.kind], vim_item.kind)
 			return vim_item
 		end,
 	},
