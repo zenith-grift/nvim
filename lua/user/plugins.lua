@@ -58,13 +58,13 @@ return packer.startup(function(use)
 					theme = "auto",
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
-					disabled_filetypes = {},
+					disabled_filetypes = { "NvimTree" },
 					always_divide_middle = true,
 				},
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff" },
-					lualine_c = {"filename" },
+					lualine_c = { "filename" },
 					lualine_x = { "diagnostics", "fileformat", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
@@ -83,11 +83,11 @@ return packer.startup(function(use)
 		end,
 	})
 
-	require("lualine").setup({
-		options = {
-			theme = "auto",
-		},
-	})
+	-- require("lualine").setup({
+	-- 	options = {
+	-- 		theme = "auto",
+	-- 	},
+	-- })
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -124,11 +124,13 @@ return packer.startup(function(use)
 
 	-- Git
 	use({
-        'lewis6991/gitsigns.nvim',
+		"lewis6991/gitsigns.nvim",
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
-		config = function() require("gitsigns").setup() end,
+		config = function()
+			require("gitsigns").setup()
+		end,
 	})
 
 	-- Autopairs
