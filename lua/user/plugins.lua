@@ -49,6 +49,12 @@ return packer.startup(function(use)
 	-- tokyonight
 	use("folke/tokyonight.nvim")
 	use({
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require("github-theme").setup({ theme_style = "dark" })
+		end,
+	})
+	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
