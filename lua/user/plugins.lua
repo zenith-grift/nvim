@@ -49,9 +49,11 @@ return packer.startup(function(use)
 	-- tokyonight
 	use("folke/tokyonight.nvim")
 	use({
-		"projekt0n/github-nvim-theme",
+		"EdenEast/nightfox.nvim",
 		config = function()
-			require("github-theme").setup({ theme_style = "dark" })
+			-- require("nightfox").load("dayfox")
+			-- require("nightfox").load("nordfox")
+			require("nightfox").load("duskfox")
 		end,
 	})
 	use({
@@ -88,12 +90,6 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-
-	-- require("lualine").setup({
-	-- 	options = {
-	-- 		theme = "auto",
-	-- 	},
-	-- })
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
