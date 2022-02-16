@@ -59,3 +59,6 @@ keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Close Buffer with BDelete
 keymap("n", "<leader>c", ":Bdelete<CR>", opts)
+
+-- Git helpers
+keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
