@@ -131,7 +131,15 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
-			require("gitsigns").setup()
+			require("gitsigns").setup({
+				add = { hl = "GitSignsAdd", text = "⏽", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+				change = {
+					hl = "GitSignsChange",
+					text = "⏽",
+					numhl = "GitSignsChangeNr",
+					linehl = "GitSignsChangeLn",
+				},
+			})
 		end,
 	})
 
