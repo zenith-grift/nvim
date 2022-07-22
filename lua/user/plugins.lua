@@ -46,16 +46,12 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
 	-- colorscheme
-	-- tokyonight
-	use("folke/tokyonight.nvim")
-	use({
-		"EdenEast/nightfox.nvim",
-		config = function()
-			-- require("nightfox").load("dayfox")
-			-- require("nightfox").load("nordfox")
-			require("nightfox").load("duskfox")
-		end,
-	})
+	use ({
+        "EdenEast/nightfox.nvim",
+        vim.cmd("colorscheme nightfox")
+    })
+
+    -- bottom buffer line
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -121,9 +117,6 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
-	-- terminal
-	use({ "akinsho/toggleterm.nvim" })
-
 	-- Git
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -131,36 +124,47 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
-			require("gitsigns").setup({
-				signs = {
-					add = { hl = "GitSignsAdd", text = "⏽", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-					change = {
-						hl = "GitSignsChange",
-						text = "⏽",
-						numhl = "GitSignsChangeNr",
-						linehl = "GitSignsChangeLn",
-					},
-					delete = {
-						hl = "GitSignsDelete",
-						text = "⏽",
-						numhl = "GitSignsDeleteNr",
-						linehl = "GitSignsDeleteLn",
-					},
-					topdelete = {
-						hl = "GitSignsDelete",
-						text = "⏽",
-						numhl = "GitSignsDeleteNr",
-						linehl = "GitSignsDeleteLn",
-					},
-					changedelete = {
-						hl = "GitSignsChange",
-						text = "~",
-						numhl = "GitSignsChangeNr",
-						linehl = "GitSignsChangeLn",
-					},
-				},
-				signcolumn = true,
-			})
+            require('gitsigns').setup {
+              signs = {
+                add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+                change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+                delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+                topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+                changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+              },
+              signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+              numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+              linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+              word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+              watch_gitdir = {
+                interval = 1000,
+                follow_files = true
+              },
+              attach_to_untracked = true,
+              current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+              current_line_blame_opts = {
+                virt_text = true,
+                virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+                delay = 1000,
+                ignore_whitespace = false,
+              },
+              current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+              sign_priority = 6,
+              update_debounce = 100,
+              status_formatter = nil, -- Use default
+              max_file_length = 40000,
+              preview_config = {
+                -- Options passed to nvim_open_win
+                border = 'single',
+                style = 'minimal',
+                relative = 'cursor',
+                row = 0,
+                col = 1
+              },
+              yadm = {
+                enable = false
+              },
+            }
 		end,
 	})
 
@@ -169,29 +173,17 @@ return packer.startup(function(use)
 		"windwp/nvim-autopairs",
 	})
 
-	-- Nvim Tree
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-
 	-- Buffer
-	use({
-		"akinsho/bufferline.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					offsets = {
-						{
-							filetype = "NvimTree",
-							text_align = "left",
-						},
-					},
-				},
-			})
-		end,
-	})
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+	-- use({
+	-- 	"akinsho/bufferline.nvim",
+	-- 	requires = "kyazdani42/nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("bufferline").setup({
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- })
 	use("famiu/bufdelete.nvim")
 
 	-- comments

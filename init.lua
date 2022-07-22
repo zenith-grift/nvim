@@ -7,8 +7,6 @@ require("user.lsp")
 require("user.treesitter")
 require("user.autopairs")
 require("user.lsp.null-ls")
-require("user.toggleterm")
-require("user.nvim-tree")
 
 -- TODO: Structure improvement
 -- Make a plugins-settings folder to celan up lua folder
