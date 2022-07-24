@@ -69,7 +69,7 @@ return packer.startup(function(use)
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff" },
 					lualine_c = { "filename" },
-					lualine_x = { "diagnostics", "fileformat", "filetype" },
+					lualine_x = { "diagnostics", "encoding", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
