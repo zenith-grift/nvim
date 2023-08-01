@@ -18,3 +18,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- keep buffer with last coppied instead of replacing
 vim.keymap.set("x", "p", [["_dP]])
+
+-- format
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
