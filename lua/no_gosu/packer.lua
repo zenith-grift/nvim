@@ -33,6 +33,10 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'numToStr/Comment.nvim',
+    }
+
+    use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         requires = {
