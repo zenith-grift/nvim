@@ -36,6 +36,10 @@ return require('packer').startup(function(use)
         'numToStr/Comment.nvim',
     }
 
+    use 'm4xshen/autoclose.nvim'
+
+    use("nvim-treesitter/nvim-treesitter-context");
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',

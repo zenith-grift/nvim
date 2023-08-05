@@ -17,6 +17,9 @@ end
 -- pass to setup along with your other options
 require("nvim-tree").setup {
     ---
+    view = {
+        width = 40,
+    },
     on_attach = my_on_attach,
     ---
 }
