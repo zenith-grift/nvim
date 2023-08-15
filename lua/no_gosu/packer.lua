@@ -13,9 +13,9 @@ return require('packer').startup(function(use)
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+        -- config = function()
+        --     vim.cmd('colorscheme rose-pine')
+        -- end
     })
 
     use {
@@ -28,7 +28,10 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    use("f-person/auto-dark-mode.nvim")
+
     use("tpope/vim-fugitive")
+
     use("lewis6991/gitsigns.nvim")
 
     use {
