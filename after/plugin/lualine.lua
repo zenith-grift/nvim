@@ -1,12 +1,12 @@
 local function cwd()
     local file = vim.api.nvim_buf_get_name(0)
     local path = os.getenv("PWD")
-    local root = path:match(".+[/\\]([^/\\]+)$")
-    if root == nil then
-        root = ""
+    if path == nil then
+        path = ""
     end
 
-    return root .. "" .. string.gsub(file, path, "")
+    local root = path:match(".+[/\\]([^/\\]+)$")
+    return root
 end
 
 require('lualine').setup {
@@ -32,7 +32,7 @@ require('lualine').setup {
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff' },
-        lualine_c = { cwd },
+        lualine_c = { cwd, "filename" },
         lualine_x = { 'diagnostics', 'encoding', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
