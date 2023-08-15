@@ -24,5 +24,15 @@ require("nvim-tree").setup {
         git_ignored = false
     },
     on_attach = my_on_attach,
+    update_focused_file =
+    {
+        enable = true,
+
+    },
+    actions = {
+        change_dir = {
+            enable = true
+        }
+    }
     ---
 }
