@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    use { "alexghergh/nvim-tmux-navigation" }
+
     use("f-person/auto-dark-mode.nvim")
 
     use("tpope/vim-fugitive")
